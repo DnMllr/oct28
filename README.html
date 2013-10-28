@@ -1,0 +1,226 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+  color:#444;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
+              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:12px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 1em;
+  outline: 1300px solid #FAFAFA;
+}
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+span.backtick {
+  border:1px solid #EAEAEA;
+  border-radius:3px;
+  background:#F8F8F8;
+  padding:0 3px 0 3px;
+}
+
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+
+p{
+margin:1em 0;
+}
+
+img{
+max-width:100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-weight:normal;
+color:#111;
+line-height:1em;
+}
+h4,h5,h6{ font-weight: bold; }
+h1{ font-size:2.5em; }
+h2{ font-size:2em; border-bottom:1px solid silver; padding-bottom: 5px; }
+h3{ font-size:1.5em; }
+h4{ font-size:1.2em; }
+h5{ font-size:1em; }
+h6{ font-size:0.9em; }
+
+blockquote{
+color:#666666;
+margin:0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+
+pre , code, kbd, samp { 
+  color: #000; 
+  font-family: monospace; 
+  font-size: 0.88em; 
+  border-radius:3px;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC; 
+}
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px 12px;}
+pre code { border: 0px !important; padding: 0;}
+code { padding: 0 3px 0 3px; }
+
+b, strong { font-weight: bold; }
+
+dfn { font-style: italic; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+@media only screen and (min-width: 480px) {
+body{font-size:14px;}
+}
+
+@media only screen and (min-width: 768px) {
+body{font-size:16px;}
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{font-size:12pt; max-width:100%; outline:none;}
+  a, a:visited { text-decoration: underline; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page :left { margin: 15mm 20mm 15mm 10mm; }
+  @page :right { margin: 15mm 10mm 15mm 20mm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+</style><title>README</title></head><body><h1 id="osprey-data-visualization-exercises">Osprey Data Visualization Exercises</h1>
+<h2 id="part-1-shapes-object-library">Part 1: Shapes Object Library</h2>
+<p>Write a set of objects in pure Javascript (i.e. not coffeescript) to
+draw basic geometric shapes.</p>
+<p>The shapes should be implemented using the basic shapes defined in the <a href="http://www.w3.org/TR/SVG11/shapes.html">SVG
+Specification</a>.</p>
+<p>The required shape classes and their associated attributes are:</p>
+<ul>
+<li><code>Line</code>: x1, y1, x2, y2, stroke, strokeWidth</li>
+<li><code>Circle</code>: cx, cy, center, width, stroke, strokeWidth, fill</li>
+<li><code>Rectangle</code>: cx, cy, center, width, height, stroke, strokeWidth, fill</li>
+<li><code>Square</code>: cx, cy, center, width, height, stroke, strokeWidth, fill</li>
+<li><code>Text</code>: x, y, text</li>
+</ul>
+<p>The definitions of the attributes are:</p>
+<ul>
+<li><code>stroke</code>: Stroke color value</li>
+<li><code>strokeWidth</code>: Stroke width in pixels</li>
+<li><code>fill</code>: Fill color value</li>
+<li><code>cx</code> / <code>cy</code>: The coordinates of the center of the shape in pixels</li>
+<li><code>center(x, y)</code>: Convenience function to set both cx and cy at once</li>
+<li><code>x1</code>,<code>y1</code>,<code>x2</code>,<code>y2</code>: The start / end points of a line in pixels</li>
+<li><code>x</code>,<code>y</code>: The location of the text element in pixels</li>
+<li><code>width</code>: The width of the shape (i.e. diameter of a circle) in pixels</li>
+<li><code>height</code>: The height of the shape in pixels. For a <code>Square</code> this should do the same thing as <code>width</code></li>
+</ul>
+<p>All (x, y) coordinates are offsets from the top left corner of the container svg element. All color values can be <a href="http://www.w3.org/TR/2008/REC-CSS2-20080411/syndata.html#value-def-color">any value supported by SVG and CSS</a>.</p>
+<p>Each attribute should be implemented using <a href="http://en.wikipedia.org/wiki/Method_chaining">method chaining</a> accessor functions.</p>
+<p>For example to set and then the stroke and stroke width of a new line object:</p>
+<pre><code>var l = new Line()
+    .stroke('blue')
+    .strokeWidth(2);
+
+l.stroke(); // return 'blue'
+l.strokeWidth(); // return 2
+</code></pre>
+<p>Each shape should also support a <code>draw(parent)</code> function that adds the element to the <code>parent</code> svg element.</p>
+<p>The following example (included <a href="file:///Users/danielmiller/Desktop/shapes/./shapes.html">here</a>) shows the expected class interface.</p>
+<pre><code>&lt;html&gt;
+   &lt;head&gt;
+      &lt;script src="./shapes.js"&gt;&lt;/script&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;svg id="container" width="800" height="600" &gt;&lt;/svg&gt;
+      &lt;script type="text/javascript"&gt;
+         var svg = document.getElementById('container');
+
+         var l = new Line()
+            .x1(200).y1(50).x2(300).y2(100)
+            .stroke('purple').strokeWidth(10)
+            .draw(svg);
+
+         var s = new Square()
+            .center(100, 100).width(100)
+            .fill('yellow')
+            .draw(svg);
+
+         var c = new Circle()
+            .center(100, 100).width(100)
+            .fill('red')
+            .draw(svg);
+
+         var r = new Rectangle()
+            .center(200, 200).width(20).height(50)
+            .fill('blue')
+            .draw(svg);
+
+         new Text()
+            .x(400).y(50)
+            .text("Line " + l.x1() + "," + l.y1() + " &gt; " + l.x2() + "," + l.y2() + " " + l.stroke())
+            .draw(svg);
+
+         new Text()
+            .x(400).y(70)
+            .text("Square " + s.cx() + "," + s.cy() + " width " + s.width() + " " + s.fill())
+            .draw(svg);
+
+    &lt;/script&gt;
+   &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>The result of your code should be functionally the same as the following HTML (though tag attributes may be in a different order, etc).</p>
+<pre><code>&lt;html&gt;
+   &lt;body&gt;
+      &lt;svg id="container" width="800" height="600"&gt;
+         &lt;line stroke="purple" stroke-width="10" x1="200" x2="300" y1="50" y2="100"&gt;&lt;/line&gt;
+         &lt;rect fill="yellow" x="50" y="50" width="100" height="100"&gt;&lt;/rect&gt;
+         &lt;circle fill="red" cx="100" cy="100" r="50"&gt;&lt;/circle&gt;
+         &lt;rect fill="blue" x="190" y="175" width="20" height="50"&gt;&lt;/rect&gt;
+         &lt;text x="400" y="50"&gt;Line 200,50 &amp;gt; 300,100 purple&lt;/text&gt;
+         &lt;text x="400" y="70"&gt;Square 100,100 width 100 yellow&lt;/text&gt;
+      &lt;/svg&gt;
+   &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>When rendered, it should look like this:</p>
+<p><img alt="image" src="file:///Users/danielmiller/Desktop/shapes/./shapes.png" /></p>
+<h2 id="part-2-basic-data-visualization">Part 2: Basic Data Visualization</h2>
+<p>In the <a href="file:///Users/danielmiller/Desktop/shapes/./data">data</a> directory there are a couple of sample data sets extracted from <a href="http://www.stat.purdue.edu/~wsc/visualizing.datatables/">here</a> and <a href="https://github.com/deremer/Cities/">here</a>. </p>
+<p>The data is available in a couple of formats -- the original plain text, .json, and .js formats. The .js files are included to simplify working with the data in environments that don't support AJAX.</p>
+<p>Using the <code>Line</code> and <code>Text</code> objects that you defined in Part 1, draw a timeseries line chart of the co2 data <a href="file:///Users/danielmiller/Desktop/shapes/./data/co2.js">here</a>. Feel free to use generic javascript helper libraries like <a href="http://underscorejs.org/">underscore.js</a> or <a href="http://jquery.com/">jquery</a> but don't use another data visualization framework.</p>
+<h2 id="part-3-creative-data-visualization">Part 3: Creative Data Visualization</h2>
+<p>Using either your own shapes or any other javascript data visualization or charting framework, implement whatever interesting data visualization you choose on these (or other) data sets. </p>
+<p>This is (obviously) an open-ended problem. The key points to consider are how to effectively convey some analysis of the data and / or let the user draw interesting conclusions from the data.</p></body></html>

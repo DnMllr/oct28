@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Jut experience </title>
+    <script src="shapes.js"></script>
+    <script src="../data/co2.js"></script>
+  </head>
+  <body>
+    <h2> Co2 Levels since 1958 </h2>
+    <svg id="container" width="600" height="350" ></svg>
+    <script>
+
+      var co2Grapher = function(data, options) {
+
+        var svg = document.getElementById('container');
+        var x = 2;
+        var y = options.height;
+        var last = new Date(data[0].date);
+        var level = 0;
+
+        for (var i = 0 ; i < data.length ; i++) {
+
+          level = data[i].level;
+          date = new Date(data[i].date.slice(0,10));
+          x += (date - last) / (options.xScale * 100000000);
+
+          if (i % options.xTagSpacing === 0 || i === data.length - 1) {
+
+            var l = new Line().x1(x).x2(x).y1(y)
+              .y2(y*2 - level * options.yScale)
+              .stroke(options.highlightColor)
+              .strokeWidth(options.thickness)
+              .draw(svg);
+
+            var t = new Text().x(x).y(y+2)
+              .text((date + '').slice(0, 15))
+              .fontSize(7).rotate(90)
+              .draw(svg);
+
+          } else {
+
+            var l = new Line().x1(x).x2(x).y1(y)
+              .y2(y*2 - level * options.yScale)
+              .stroke(options.color)
+              .strokeWidth(options.thickness)
+              .draw(svg);
+
+          }
+
+          last = date;
+        }
+
+        level -= level % options.yTagSpacing;
+
+        while (y*2 - level * options.yScale <= y){
+
+          var t = new Text().x(x+2)
+            .y(y*2 - level * options.yScale)
+            .text(level + '').fontSize(7)
+            .draw(svg);
+          level -= options.yTagSpacing;
+
+        }
+      }
+
+      var options = {
+        xTagSpacing: 30,
+        yTagSpacing: 50,
+        xScale: 20,
+        yScale: 1.5,
+        height: 300,
+        thickness: 1,
+        highlightColor: 'black',
+        color: 'green'
+      };
+
+      co2Grapher(co2, options);
+      
+    </script>
+  </body>
+</html>
